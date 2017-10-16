@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.repository.MemberRepository">
+	<!-- select 는 반드시 리턴타입을 명시해 주어야 한다. 결과가 복수면 자동적으로 리스트로 반환한다. -->
+
+<!-- <resultMap id="rowMapper" type="com.example.demo.domain.Member">
+	<result column="email" property="email"/>
+	<result column="name" property="name"/>
+	<result column="password" property="password"/>
+	<result column="profile_img" property="profile_img"/>
+</resultMap>
+
+<select id="selectAll" resultType="Member"> select * from member </select>
+<insert id="insert" parameterType="Member"> insert into member (email, password, name, profile_img) values (#{email}, #{password}, #{name},'/img/profile_default.png'); </insert>
+<delete id="delete" parameterType="String"> delete from member where email=#{email} </delete>
+<update id="update" parameterType="Member"> update member set name=#{name}, password=#{password}, profile_img=#{profile_img} where email=#{email} </update>
+<select id="isValidUser" resultType="boolean" parameterType="Member"> select count(1) from member where email=#{email} and password=#{password} </select>
+<select id="selectEmail" resultType="Member"> select * from member where email=#{email} </select> -->
+
+	<select id="selectAll" resultType="Member">
+		select * from member
+	</select>
+	<insert id="insert" parameterType="Member">
+		insert into member (email, password, name, profile_img) values (#{email}, #{password}, #{name},'/img/profile_default.png'); 
+	</insert>
+	<delete id="delete" parameterType="String">
+		delete from member where email=#{email}
+	</delete>
+	
+	<select id="isValidUser" parameterType="Member" resultType="boolean">
+		select count(1) from member where email=#{email} and password=#{password}
+	</select>
+	<update id="update" parameterType="Member"> 
+		update member set name=#{name}, password=#{password}, profile_img=#{profile_img} where email=#{email} 
+	</update>
+	<select id="selectEmail" resultType="Member"> 
+		select * from member where email=#{email} 
+	</select>
+</mapper>

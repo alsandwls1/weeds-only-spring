@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.repository.ProjectRepository">
+
+		<!-- select 는 반드시 리턴타입을 명시해 주어야 한다. 결과가 복수면 자동적으로 리스트로 반환한다. -->
+	<select id="selectAll" resultType="Project">
+		select * from project
+	</select>
+	<insert id="insert" parameterType="Member">
+		insert into project (p_name, p_domain, p_day) values (#{p_name}, #{p_domain}, #{p_day}); 
+	</insert>
+	<delete id="delete" parameterType="String">
+		delete from project where p_domain=#{p_domain}
+	</delete>
+	
+	<select id="selectName" resultType="Project">
+		select * from project where p_name like concat('%',#{p_name},'%')
+	</select>
+	
+	<select id="searchDomain" parameterType="String" resultType="Project">
+		select * from project where p_domain=#{p_domain}
+	</select>
+</mapper>
