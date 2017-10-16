@@ -2013,7 +2013,7 @@ var NewProjectComponent = (function () {
         this.projectService.addProject(p_name, p_domain).then(function (project) { return _this.projects.push(project); });
         this.projectService.getObservable().subscribe(function (massege) {
             if (massege.send = 'ok') {
-                alert('생성완료!!');
+                // alert('생성완료!!');
                 _this.router.navigate(['project-list']);
             }
         });
@@ -2714,7 +2714,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var FileUploadService = (function () {
     function FileUploadService(http) {
         this.http = http;
-        this.uploadUrl = "http://localhost:8080";
+        this.uploadUrl = "https://localhost:8080";
         //
         // fileUploadNames: Observable<string[]>;
         //
@@ -2854,7 +2854,7 @@ var MemberService = (function () {
     function MemberService(http) {
         this.http = http;
         this.subject = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
-        this.membersUrl = "http://localhost:8080/members";
+        this.membersUrl = "https://localhost:8080/members";
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({ 'Content-Type': 'application/json; charset=utf-8' });
     }
     MemberService.prototype.getMembers = function () {
@@ -3083,7 +3083,7 @@ var ProjectSearchService = (function () {
     function ProjectSearchService(http) {
         this.http = http;
         this.subject = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["Subject"]();
-        this.searchUrl = "http://localhost:8080/projects";
+        this.searchUrl = "https://localhost:8080/projects";
     }
     ProjectSearchService.prototype.search = function (search) {
         var _this = this;
@@ -3149,8 +3149,8 @@ var ProjectService = (function () {
     function ProjectService(http) {
         this.http = http;
         this.subject = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
-        this.proejectsUrl = "http://localhost:8080/projects";
-        this.proejectViewUrl = "http://localhost:8080/projects/view";
+        this.proejectsUrl = "https://localhost:8080/projects";
+        this.proejectViewUrl = "https://localhost:8080/projects/view";
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({ 'Content-Type': 'application/json; charset=utf-8' });
     }
     ProjectService.prototype.getProjects = function () {
