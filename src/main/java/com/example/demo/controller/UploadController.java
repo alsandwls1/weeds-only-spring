@@ -43,7 +43,7 @@ public class UploadController {
 	public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
 		String message = "";
 		try {
-			storageService.store(file);
+//			storageService.store(file);
 			files.add(file.getOriginalFilename());
 			System.out.println(files);
 
@@ -59,9 +59,9 @@ public class UploadController {
 	@GetMapping("/getallfiles")
 	public ResponseEntity<List<String>> getListFiles(Model model) {
 		System.out.println("1");
-		files.removeAll(files);
+//		files.removeAll(files);
 
-		File directory = new File("D:/uploads");
+//		File directory = new File("D:/uploads");
 
 		// File[] fs = directory.listFiles();
 		//
@@ -70,7 +70,7 @@ public class UploadController {
 		// }
 		// System.out.println(files);
 
-		files = fileRepository2.selectAll();
+//		files = fileRepository2.selectAll();
 
 		List<String> fileNames = files
 				.stream().map(fileName -> MvcUriComponentsBuilder
